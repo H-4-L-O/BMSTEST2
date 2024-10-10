@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전화번호 인증</title>
+    <link rel="stylesheet" href="halo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome 사용 -->
+</head>
+<body class="verification">
+    <div class="verification-box">
+        <h2><i class="fas fa-mobile-alt"></i> SMS 인증</h2>
+        <form id="phone-verification-form">
+            <div class="input-group">
+                <label for="phone"><i class="fas fa-phone"></i> 전화번호:</label>
+                <input type="tel" id="phone" placeholder="010-1234-5678" required>
+            </div>
+
+            <!-- 인증번호 요청 버튼 추가 -->
+            <button class="verification-btn" type="button" id="send-sms"><i class="fas fa-paper-plane"></i> 인증번호 요청</button>
+
+            <!-- 인증번호 입력 필드 및 인증 버튼 추가 -->
+            <div class="input-group">
+                <label for="verification-code"><i class="fas fa-key"></i> 인증번호:</label>
+                <input type="text" id="verification-code" placeholder="인증번호 입력" required>
+            </div>
+            <button class="verification-btn" type="button" id="verify-code"><i class="fas fa-check"></i> 인증</button>
+        </form>
+    </div>
+
+    <script>
+        // 인증번호 요청 버튼 클릭 시 알림 메시지
+        document.getElementById('send-sms').addEventListener('click', function () {
+            alert('SMS 인증번호가 발송되었습니다.');
+        });
+
+        // 인증 버튼 클릭 시 알림 메시지
+        document.getElementById('verify-code').addEventListener('click', function () {
+            const verificationCode = document.getElementById('verification-code').value;
+            if (verificationCode) {
+                alert('인증이 완료되었습니다.');
+            } else {
+                alert('인증번호를 입력해주세요.');
+            }
+        });
+    </script>
+</body>
+</html>
